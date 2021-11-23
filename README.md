@@ -2,10 +2,6 @@
 
 ---
 
-<img src="https://s19538.pcdn.co/wp-content/uploads/2018/08/Car-Gurus-Logo.jpg" alt="Car Gurus" title="Car Gurus Logo" width="600" height="300" />
-
----
-
 # Table of Contents
 
 ---
@@ -80,27 +76,18 @@
 
 ---
 
-| Feature                        | Description                                                                                                            | Data Type | Notes |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------- | ------------- |
-| `back_legroom`                  |  Legroom in the rear seat (inches)                                                          |   float     |   Used in model    |
-| `city_fuel_economy`                  |  Gas mileage in city (mpg)                                                        |   float     |   Used in model    |
-| `engine_displacement`                  |  measure of the cylinder volume of engine (cubic centimeters)                                                       |   float     |   Used in model    |
-| `fuel_tank_volume`                  |  Volume of fuel tank (gallons)                                                          |   float     |   Used in model    |
-| `height`                  |  Height of vehicle (inches)                                                        |   float     |   Used in model    |
-| `highway_fuel_economy`                  |  Gas mileage in highway (mpg)                                                       |   float     |   Used in model    |
-| `horsepower`                  |  Measure of engine power                                                          |   float     |   Used in model    |
-| `length`                  |  Length of vehicle (inches)                                                         |   float     |   Used in model    |
-| `maximum_seating`                  |  Total number of seats                                                         |   float     |   Used in model    |
-| `mileage`                  |  Mileage of vehicle (miles)                                                          |   float     |   Used in model    |
-| `wheelbase`                  |  Distance between centers of front and rear wheels (inches)                                                         |   float     |   Used in model    |
-| `width`                  |  Width of vehicle (inches)                                                        |   float     |   Used in model    |
-| `year`                  |  Year car was released                                                         |   int     |   Used in model    |
-
-
----
-| Target | Definition | Data Type | Notes |
-| ----- | ----- | ----- | ----- |
-| `price` | Sales price of used car | float | Value being predicted |
+| Word | Definition | 
+| ----- | ----- | 
+| standard_value | A standardized value derived from Ki and IC50 in the literature |
+| canonical_smiles | A string variable that represents a chemical structure |
+| molecule_chembl_id | A unique ID for a chemical compound in ChEMBL |
+| MW| Molecular weight (daltons) |
+| LogP | Ratio of solubility in fat to solubility in water |
+| NumHDonors | The number of hydrogen donors that a chemical compound has |
+| NumHAcceptors | The number of hydrogen acceptors that a chemical compound has|
+| Lipinski Descriptors | The "Rule of Five" that describes the drug-likeness of a chemical compound |
+| fingerprints | A dataframe where each column is a boolean question describing the chemical compounds |
+| IC50 | Half the concentration of a chemical compounded needed to reach maximum inhibition of the target |
 
 ---
 
@@ -178,11 +165,9 @@ ___
 
 [(Back to top)](#table-of-contents)
 
-- Establish a baseline accuracy to determine if having a model is better than no model and train and compare at least 4 different models. Document these steps well.
-- Train (fit, transform, evaluate) multiple models, varying the algorithm and/or hyperparameters you use.
-- Compare evaluation metrics across all the models you train and select the ones you want to evaluate using your validate split.
+
+- Train (fit, transform, evaluate) models.
 - Feature Selection (after initial iteration through pipeline): Are there any variables that seem to provide limited to no additional information? If so, remove them.
-- Based on the evaluation of the models using the train and validate datasets, choose the best model to try with the test data, once.
 - Test the final model on the out-of-sample data (the testing dataset), summarize the performance, interpret and document the results.
 
 ---
@@ -190,16 +175,13 @@ ___
 ### Conclusion and Next Steps
 
 [(See Executive Summary)](#executive-summary)
-
+The model described herein can predict the IC50 of chemical compounds for coronavirus target; which can be used to pre-screen drug-candidates before expensive, time-consuming, and risky lab experiments.
 ---
 
 ### Reproduce My Project
-
 ---
-
 [(Back to top)](#table-of-contents)
+
+Copy the coronavirus_drug_discovery.ipynb file. If you don't have the ChEMBL client, rdkit, and padelpy installed; then un-comment (remove # sign) from lines that contain installation commands. The code for installing the libraries are in the same cell as the library imports. Finally, run the notebook.
  
-- [x] Read this README.md
-- [ ] Download the modules (.py files), and final_report.ipynb files into your working directory
-- [ ] Download complete dataset from Kaggle at this [link](https://www.kaggle.com/ananaymital/us-used-cars-dataset?select=used_cars_data.csv) and save in same repo as above files
-- [ ] Run the final_report.ipynb notebook
+
